@@ -1,0 +1,16 @@
+@use "../../abstracts/colors" as c;
+@use "../../abstracts/mixins" as *;
+
+.accent-section {
+  position: relative;
+  background: c.$bright-red;
+
+  &__container {
+    @include flex(row, space-between, center);
+    padding-block: 3rem;
+  }
+
+  &__header {
+    color: c.$very-light-gray;
+  }
+}

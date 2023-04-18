@@ -1,0 +1,59 @@
+@use "../../abstracts/colors" as c;
+@use "../../base/functions" as func;
+@use "../../abstracts/mixins" as *;
+
+.testimonials-card {
+  position: relative;
+  @include flex(column, flex-start, center);
+  min-width: calc((100dvw - 3rem) / 3);
+  text-align: center;
+  background: c.$very-light-gray;
+  padding-inline: 2rem;
+  padding-bottom: 2rem;
+  border-radius: 0.25rem;
+
+  &__image {
+    width: func.rem(75);
+    z-index: 10;
+  }
+
+  &__header {
+    font-size: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    max-width: 50ch;
+    @media (width <= func.rem(1024)) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: func.rem(75);
+    background: white;
+    translate: -50% -50%;
+  }
+}
+
+.swiper-pagination {
+  background: white;
+  padding-block: 1rem;
+  translate: 0 50%;
+}
+
+.swiper-pagination-bullet {
+  border: 1px solid c.$bright-red;
+  background: transparent;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: c.$bright-red;
+}

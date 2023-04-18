@@ -1,0 +1,58 @@
+@use "../../abstracts/colors" as c;
+@use "../../base/functions" as func;
+@use "../../abstracts/mixins" as *;
+
+:root {
+  --counter-size: 4rem;
+  --counter-gap: 2rem;
+}
+
+.advantages {
+  @include flex();
+  gap: 3rem;
+  margin-top: 1rem;
+
+  &__text {
+    width: 50%;
+  }
+
+  &__text-header {
+    max-width: 20ch;
+    font-size: clamp(1.5rem, 2vw + 1.5em, 2.5rem);
+    margin-bottom: 2rem;
+  }
+
+  &__description {
+    max-width: 32ch;
+  }
+
+  &__list {
+    counter-reset: my-custom-counter;
+    width: 50%;
+    @include flex(column);
+    gap: 2.5rem;
+    padding-left: calc(var(--counter-size) + var(--counter-gap));
+  }
+
+  &__list-item {
+    position: relative;
+    counter-increment: my-custom-counter;
+    &::before {
+      content: counter(my-custom-counter, decimal-leading-zero);
+      position: absolute;
+      width: var(--counter-size);
+      height: func.rem(40);
+      line-height: func.rem(40);
+      text-align: center;
+      border-radius: 9999px;
+      background: c.$bright-red;
+      color: c.$very-light-gray;
+      font-weight: 500;
+      translate: calc(-100% - var(--counter-gap)) -25%;
+    }
+  }
+
+  &__list-item-header {
+    margin-bottom: 0.75em;
+  }
+}

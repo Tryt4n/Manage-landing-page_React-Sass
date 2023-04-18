@@ -1,0 +1,27 @@
+@use "./functions" as func;
+
+:root {
+  --padding: 6rem;
+  @media (width <= func.rem(768)) {
+    --padding: 3rem;
+  }
+  @media (width <= func.rem(480)) {
+    --padding: 1rem;
+  }
+}
+
+.container {
+  max-width: calc(func.rem(1720) + var(--padding));
+  margin-inline: auto;
+  padding-inline: var(--padding);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}

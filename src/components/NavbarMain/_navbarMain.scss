@@ -1,0 +1,21 @@
+@use "../../abstracts/colors" as c;
+@use "../../abstracts/variables" as v;
+@use "../../abstracts/mixins" as *;
+
+.main-navigation {
+  padding-top: 3rem;
+  @include flex(row, space-between, center);
+
+  &__list {
+    @include flex();
+    gap: 1rem;
+  }
+
+  &__list-item {
+    font-weight: 500;
+    transition: v.$main-transition;
+    &:where(:hover, :focus-visible) {
+      color: c.$dark-grayish-blue;
+    }
+  }
+}
