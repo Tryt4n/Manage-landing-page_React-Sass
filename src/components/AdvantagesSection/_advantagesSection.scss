@@ -11,9 +11,15 @@
   @include flex();
   gap: 3rem;
   margin-top: 1rem;
+  @media (width <= func.rem(1024)) {
+    @include flex(column, flex-start, center);
+    text-align: center;
+  }
 
-  &__text {
-    width: 50%;
+  @media (width > func.rem(1024)) {
+    &__text {
+      width: 50%;
+    }
   }
 
   &__text-header {
@@ -24,14 +30,26 @@
 
   &__description {
     max-width: 32ch;
+    @media (width <= func.rem(1024)) {
+      margin-inline: auto;
+    }
   }
 
   &__list {
     counter-reset: my-custom-counter;
-    width: 50%;
+    text-align: start;
     @include flex(column);
     gap: 2.5rem;
-    padding-left: calc(var(--counter-size) + var(--counter-gap));
+    @media (width > func.rem(1024)) {
+      width: 50%;
+      padding-left: calc(var(--counter-size) + var(--counter-gap));
+    }
+    @media (width <= func.rem(1024)) {
+      padding-left: 3rem;
+    }
+    @media (width <= func.rem(480)) {
+      padding-left: 1rem;
+    }
   }
 
   &__list-item {
@@ -48,11 +66,28 @@
       background: c.$bright-red;
       color: c.$very-light-gray;
       font-weight: 500;
-      translate: calc(-100% - var(--counter-gap)) -25%;
+      @media (width > func.rem(1024)) {
+        translate: calc(-100% - var(--counter-gap)) -25%;
+      }
     }
   }
 
   &__list-item-header {
     margin-bottom: 0.75em;
+    @media (width <= func.rem(1024)) {
+      background: c.$bright-red-opaque;
+      padding-block: 0.5em;
+      padding-left: 2rem;
+      translate: calc(var(--counter-size) - 1rem);
+    }
+  }
+
+  &__list-item-text {
+    @media (width <= func.rem(1024)) {
+      padding-right: 3rem;
+    }
+    @media (width <= func.rem(480)) {
+      padding-right: 1rem;
+    }
   }
 }

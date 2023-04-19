@@ -12,6 +12,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: v.$main-transition;
+  z-index: 10;
 
   &--accent {
     background: c.$bright-red;

@@ -1,0 +1,38 @@
+@use "../../abstracts/colors" as c;
+@use "../../abstracts/mixins" as *;
+
+.bg-dark {
+  background: c.$dark-blue;
+}
+
+button:is(:last-child) {
+  box-shadow: none; //??
+}
+
+.footer-wrapper {
+  a {
+    color: white; //!!!!!!
+  }
+
+  @include flex(row, space-between, space-between);
+  padding-block: 2rem;
+}
+
+.footer-navigation-social-wrapper {
+  @include flex(column, space-between, center);
+
+  &__icons {
+    @include flex(row);
+    gap: 0.75rem;
+  }
+}
+
+.footer-navigation-main {
+  @include flex(row, space-between, flex-start);
+
+  &__first-wrapper {
+  }
+
+  &__second-wrapper {
+  }
+}

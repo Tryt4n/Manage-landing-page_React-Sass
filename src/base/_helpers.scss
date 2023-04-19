@@ -2,7 +2,7 @@
 
 :root {
   --padding: 6rem;
-  @media (width <= func.rem(768)) {
+  @media (width <= func.rem(1024)) {
     --padding: 3rem;
   }
   @media (width <= func.rem(480)) {

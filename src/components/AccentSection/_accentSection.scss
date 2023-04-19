@@ -1,4 +1,5 @@
 @use "../../abstracts/colors" as c;
+@use "../../base/functions" as func;
 @use "../../abstracts/mixins" as *;
 
 .accent-section {
@@ -6,11 +7,41 @@
   background: c.$bright-red;
 
   &__container {
-    @include flex(row, space-between, center);
-    padding-block: 3rem;
+    padding-block: 5rem;
+    @include flex(column, center, center);
+    text-align: center;
+    @media (width > func.rem(1024)) {
+      @include flex(row, space-between, center);
+      padding-block: 3rem;
+      text-align: start;
+    }
   }
 
   &__header {
+    max-width: 20ch;
+    font-size: clamp(2rem, 2vw + 1.5em, 3rem);
+    font-weight: 500;
+    line-height: 1.35em;
     color: c.$very-light-gray;
+    z-index: 10;
+    @media (width <= func.rem(1024)) {
+      max-width: 12ch;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    @media (width > func.rem(1024)) {
+      background-image: url("./images/bg-simplify-section-desktop.svg");
+      rotate: 180deg;
+    }
+    @media (width <= func.rem(1024)) {
+      background-image: url("./images/bg-simplify-section-mobile.svg");
+      background-repeat: no-repeat;
+      background-position: left 50%;
+    }
   }
 }

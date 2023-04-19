@@ -1,18 +1,45 @@
+@use "../../base/functions" as func;
 @use "../../abstracts/mixins" as *;
 
 .testimonials {
-  margin-block: 7.5rem;
-
+  position: relative;
   &__header {
     text-align: center;
     font-size: clamp(1.5rem, 2vw + 1.5em, 2.5rem);
   }
 
   &__wrapper {
-    margin-block: 2rem;
+    margin-block: 3rem 2rem;
   }
 
   &__btn-wrapper {
     text-align: center;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  @media (width > func.rem(1024)) {
+    margin-block: 7.5rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("./images/bg-tablet-pattern.svg");
+      background-position: left top;
+      background-repeat: no-repeat;
+      background-size: contain;
+      translate: 0 -40%;
+      scale: 1.25;
+      z-index: -1;
+    }
+  }
+
+  @media (width <= func.rem(1024)) {
+    margin-block: 5rem 3rem;
   }
 }
