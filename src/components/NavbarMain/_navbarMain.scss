@@ -1,21 +1,62 @@
 @use "../../abstracts/colors" as c;
 @use "../../abstracts/variables" as v;
+@use "../../base/functions" as func;
 @use "../../abstracts/mixins" as *;
 
 .main-navigation {
   padding-top: 3rem;
   @include flex(row, space-between, center);
 
-  &__list {
-    @include flex();
-    gap: 1rem;
+  //* DESKTOP
+  @media (width > func.rem(1024)) {
+    &__list {
+      @include flex();
+      gap: 1rem;
+    }
   }
-
   &__list-item {
     font-weight: 500;
     transition: v.$main-transition;
     &:where(:hover, :focus-visible) {
       color: c.$dark-grayish-blue;
+    }
+  }
+
+  //* MOBILE
+  @media (width <= func.rem(1024)) {
+    &__list {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 90%;
+      translate: -50% calc(func.rem(72) + 2rem);
+      background: white;
+      padding: 2rem;
+      text-align: center;
+      @include flex(column, stretch);
+      gap: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    &__list[aria-hidden="true"] {
+      z-index: -1;
+      opacity: 0;
+    }
+
+    &__list-item {
+      padding: 1rem;
+    }
+
+    &__mobile-btn {
+      padding: 0;
+      border: none;
+      outline-offset: 0.25rem;
+      cursor: pointer;
+      background: transparent;
+      transition: v.$main-transition;
+      &:where(:hover, :focus-visible) {
+        opacity: 0.75;
+      }
     }
   }
 }
