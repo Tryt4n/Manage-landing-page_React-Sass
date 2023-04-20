@@ -3,7 +3,7 @@ export default function TestimonialsCard({ imageUrl, name, text }) {
     <article className="testimonials-card">
       <img
         src={imageUrl}
-        alt="avatar"
+        alt={`avatar ${name}`}
         loading="lazy"
         className="testimonials-card__image"
       />

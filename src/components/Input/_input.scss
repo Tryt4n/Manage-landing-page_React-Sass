@@ -1,0 +1,31 @@
+@use "../../abstracts/colors" as c;
+
+:root {
+  --padding-left: 1rem;
+}
+
+.custom-input {
+  position: relative;
+  padding-block: 0.5em;
+  padding-left: var(--padding-left);
+  padding-right: 2rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  font-size: 1rem;
+
+  &__warning {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-left: var(--padding-left);
+    padding-top: 0.5em;
+    translate: 0 100%;
+    font-size: 0.75rem;
+    color: c.$bright-red;
+  }
+}
+
+.custom-input.invalid {
+  color: c.$bright-red;
+  border-color: c.$bright-red;
+}

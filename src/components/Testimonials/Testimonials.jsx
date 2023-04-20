@@ -81,7 +81,7 @@ export default function Testimonials() {
 
           {width > 1024 && (
             <>
-              <SwiperSlide>
+              <SwiperSlide key={crypto.randomUUID()}>
                 <TestimonialsCard
                   imageUrl={"./images/avatar-anisha.png"}
                   name={"Anisha Li"}
@@ -92,7 +92,7 @@ export default function Testimonials() {
                 />
               </SwiperSlide>
 
-              <SwiperSlide>
+              <SwiperSlide key={crypto.randomUUID()}>
                 <TestimonialsCard
                   imageUrl={"./images/avatar-ali.png"}
                   name={"Ali Bravo"}
@@ -104,7 +104,7 @@ export default function Testimonials() {
                 />
               </SwiperSlide>
 
-              <SwiperSlide>
+              <SwiperSlide key={crypto.randomUUID()}>
                 <TestimonialsCard
                   imageUrl={"./images/avatar-richard.png"}
                   name={"Richard Watts"}
@@ -115,7 +115,7 @@ export default function Testimonials() {
                 />
               </SwiperSlide>
 
-              <SwiperSlide>
+              <SwiperSlide key={crypto.randomUUID()}>
                 <TestimonialsCard
                   imageUrl={"./images/avatar-shanai.png"}
                   name={"Shanai Gough"}

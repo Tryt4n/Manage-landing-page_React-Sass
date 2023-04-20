@@ -1,38 +1,100 @@
 @use "../../abstracts/colors" as c;
+@use "../../abstracts/variables" as v;
+@use "../../base/functions" as func;
 @use "../../abstracts/mixins" as *;
 
 .bg-dark {
-  background: c.$dark-blue;
-}
-
-button:is(:last-child) {
-  box-shadow: none; //??
+  background: c.$very-dark-blue;
 }
 
 .footer-wrapper {
-  a {
-    color: white; //!!!!!!
+  @media (width > func.rem(1024)) {
+    @include flex(row, space-between, space-between);
   }
+  padding-block: 3rem;
 
-  @include flex(row, space-between, space-between);
-  padding-block: 2rem;
+  &__copyright-text {
+    @media (width <= func.rem(1024)) {
+      text-align: center;
+      margin-top: 3rem;
+    }
+  }
 }
 
 .footer-navigation-social-wrapper {
-  @include flex(column, space-between, center);
-
+  @media (width > func.rem(1024)) {
+    @include flex(column, space-between, center);
+  }
+  @media (width <= func.rem(1024)) {
+    @include flex(column-reverse, center, center);
+    gap: 3rem;
+  }
   &__icons {
     @include flex(row);
     gap: 0.75rem;
+    @media (width <= func.rem(1024)) {
+      gap: 1.5rem;
+      scale: 1.25;
+    }
+  }
+
+  &__logo {
+    color: white;
+    transition: v.$main-transition;
+    &:where(:hover, :focus-visible) {
+      color: c.$bright-red;
+    }
   }
 }
 
 .footer-navigation-main {
-  @include flex(row, space-between, flex-start);
+  @media (width > func.rem(1024)) {
+    @include flex(row, space-around, flex-start);
+    gap: 2rem;
+    flex-grow: 1;
+  }
+  @media (width <= func.rem(1024)) {
+    @include flex(row, center, flex-start);
+    gap: 5rem;
+    margin-block: 3rem;
+  }
+  font-size: 0.75rem;
 
   &__first-wrapper {
+    @include flex(column);
+    gap: 1rem;
   }
 
   &__second-wrapper {
+    @include flex(column);
+    gap: 1rem;
+  }
+
+  &__link {
+    color: c.$very-dale-red;
+    transition: v.$main-transition;
+    &:where(:hover, :focus-visible) {
+      color: c.$bright-red;
+    }
+  }
+}
+
+.footer-form {
+  @media (width > func.rem(1024)) {
+    @include flex(column, space-between, flex-end);
+  }
+  @media (width <= func.rem(1024)) {
+    @include flex(row, center);
+  }
+
+  &__email-wrapper {
+    position: relative;
+    @include flex(row);
+  }
+  button:is(:last-child) {
+    box-shadow: none;
+    padding-inline: 1.5rem;
+    margin-left: 0.5rem;
+    outline-offset: 0;
   }
 }
