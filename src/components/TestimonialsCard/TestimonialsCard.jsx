@@ -4,7 +4,6 @@ export default function TestimonialsCard({ imageUrl, name, text }) {
       <img
         src={imageUrl}
         alt={`avatar ${name}`}
-        loading="lazy"
         className="testimonials-card__image"
       />
       <h3 className="testimonials-card__header">{name}</h3>
