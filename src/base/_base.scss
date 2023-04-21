@@ -8,7 +8,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 2rem;
+  scroll-margin-block: auto;
   scrollbar-width: thin;
   scrollbar-color: hsl(0, 0%, 60%) transparent;
 }

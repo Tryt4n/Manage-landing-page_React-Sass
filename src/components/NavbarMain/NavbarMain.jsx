@@ -23,11 +23,6 @@ export default function NavbarMain() {
 
   function handleMobileMenuBackgroundClick(e) {
     if (isMobileMenuExpanded && mobileMenuRef.current && mobileMenuRef.current.contains(e.target)) {
-      // setIsMobileMenuExpanded(false);
-      // setIsMenuOpen(false);
-      // setMobileMenuTabIndex(-1);
-      // setIsMobileListMenuHidden(true);
-      // console.log("closing");
       handleMobileMenu();
     }
   }
@@ -35,12 +30,10 @@ export default function NavbarMain() {
   useEffect(() => {
     if (isMobileMenuExpanded) {
       document.addEventListener("click", handleMobileMenuBackgroundClick);
-      // document.addEventListener("touchstart", handleMobileMenuBackgroundClick);
     }
 
     return () => {
       document.removeEventListener("click", handleMobileMenuBackgroundClick);
-      // document.removeEventListener("touchstart", handleMobileMenuBackgroundClick);
     };
   }, [isMobileMenuExpanded]);
 
