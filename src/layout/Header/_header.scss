@@ -35,6 +35,20 @@ body {
       background-size: contain;
     }
   }
+
+  @media (width <= func.rem(1024)) {
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("./assets/icons/bg-tablet-pattern.svg");
+      background-position: right bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+      translate: 65%;
+      z-index: -1;
+    }
+  }
 }
 
 .header-wrapper {

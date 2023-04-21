@@ -19,8 +19,20 @@ export default function Testimonials() {
 
   return (
     <section className="testimonials">
-      <h2 className="container testimonials__header">What they've said</h2>
-      <div className="testimonials__wrapper">
+      <h2
+        className="container testimonials__header"
+        data-aos="fade-up"
+        data-aos-duration="500"
+        data-aos-delay="500"
+      >
+        What they've said
+      </h2>
+      <div
+        className="testimonials__wrapper"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        data-aos-delay="1000"
+      >
         <Swiper
           slidesPerView={width > 1024 ? 3 : 1}
           spaceBetween={30}
@@ -126,7 +138,12 @@ export default function Testimonials() {
           )}
         </Swiper>
       </div>
-      <div className="container testimonials__btn-wrapper">
+      <div
+        className="container testimonials__btn-wrapper"
+        data-aos="zoom-in"
+        data-aos-duration="500"
+        data-aos-delay="1150"
+      >
         <Button />
       </div>
     </section>

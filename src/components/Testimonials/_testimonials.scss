@@ -16,12 +16,6 @@
     text-align: center;
   }
 
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-  }
-
   @media (width > func.rem(1024)) {
     margin-block: 7.5rem;
 
