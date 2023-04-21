@@ -75,8 +75,8 @@ export default function Testimonials() {
               `}
             />
           </SwiperSlide>
-          //! Copied testimonials card for better Swiper performance
           {width > 1024 && (
+            //! Copied testimonials card for better Swiper performance
             <>
               <SwiperSlide key={crypto.randomUUID()}>
                 <TestimonialsCard

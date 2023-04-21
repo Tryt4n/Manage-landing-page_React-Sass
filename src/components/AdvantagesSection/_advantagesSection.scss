@@ -36,6 +36,7 @@
   }
 
   &__list {
+    overflow-x: hidden;
     counter-reset: my-custom-counter;
     text-align: start;
     @include flex(column);

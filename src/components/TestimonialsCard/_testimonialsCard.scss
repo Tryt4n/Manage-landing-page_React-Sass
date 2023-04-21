@@ -59,6 +59,11 @@
   border: 1px solid c.$bright-red;
   background: transparent;
   opacity: 1;
+  outline-offset: 0.15em;
+
+  &:focus-visible {
+    outline: 1px solid hsl(212, 88%, 59%);
+  }
 }
 
 .swiper-pagination-bullet-active {

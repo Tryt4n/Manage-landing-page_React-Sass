@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import useWindowSize from "../../hooks/useWindowSize";
 
 import MobileMenuButton from "./MobileMenuButton";
@@ -11,6 +11,8 @@ export default function NavbarMain() {
   const [isMobileListMenuHidden, setIsMobileListMenuHidden] = useState(true);
   const [isMobileMenuExpanded, setIsMobileMenuExpanded] = useState(false);
 
+  const mobileMenuRef = useRef(null);
+
   function handleMobileMenu() {
     setIsMenuOpen(!isMenuOpen);
 
@@ -18,6 +20,29 @@ export default function NavbarMain() {
     setIsMobileListMenuHidden(!isMobileListMenuHidden);
     setIsMobileMenuExpanded(!isMobileMenuExpanded);
   }
+
+  function handleMobileMenuBackgroundClick(e) {
+    if (isMobileMenuExpanded && mobileMenuRef.current && mobileMenuRef.current.contains(e.target)) {
+      // setIsMobileMenuExpanded(false);
+      // setIsMenuOpen(false);
+      // setMobileMenuTabIndex(-1);
+      // setIsMobileListMenuHidden(true);
+      // console.log("closing");
+      handleMobileMenu();
+    }
+  }
+
+  useEffect(() => {
+    if (isMobileMenuExpanded) {
+      document.addEventListener("click", handleMobileMenuBackgroundClick);
+      // document.addEventListener("touchstart", handleMobileMenuBackgroundClick);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleMobileMenuBackgroundClick);
+      // document.removeEventListener("touchstart", handleMobileMenuBackgroundClick);
+    };
+  }, [isMobileMenuExpanded]);
 
   return (
     <nav className="main-navigation">
@@ -31,7 +56,10 @@ export default function NavbarMain() {
           alt="Manage logo"
         />
       </a>
-      <div className={isMobileMenuExpanded ? "main-navigation__mobile-menu-background" : undefined}>
+      <div
+        className={isMobileMenuExpanded ? "main-navigation__mobile-menu-background" : undefined}
+        ref={mobileMenuRef}
+      >
         {isMobileMenuExpanded && (
           <MobileMenuButton
             isMobileMenuExpanded={isMobileMenuExpanded}

@@ -6,6 +6,7 @@ body {
 }
 
 .header-section {
+  // overflow: hidden;
   position: relative;
   @include flex(column);
 
@@ -55,14 +56,19 @@ body {
   }
 
   &__header {
-    max-width: 20ch;
+    max-width: 15ch;
     font-size: clamp(2rem, 2vw + 1.5em, 3.5rem);
+    @media (width <= func.rem(1024)) {
+      max-width: 20ch;
+    }
   }
 
   &__text {
     max-width: 32ch;
     margin-block: 2rem;
-    margin-inline: auto;
+    @media (width <= func.rem(1024)) {
+      margin-inline: auto;
+    }
   }
 
   &__image {
