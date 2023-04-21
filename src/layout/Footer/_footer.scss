@@ -97,4 +97,10 @@
     margin-left: 0.5rem;
     outline-offset: 0;
   }
+
+  @media (width < func.rem(360)) {
+    .custom-input {
+      padding-right: 0;
+    }
+  }
 }

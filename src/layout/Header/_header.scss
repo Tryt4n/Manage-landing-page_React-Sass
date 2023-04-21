@@ -6,7 +6,6 @@ body {
 }
 
 .header-section {
-  // overflow: hidden;
   position: relative;
   @include flex(column);
 
@@ -31,6 +30,7 @@ body {
   }
 
   @media (width <= func.rem(1024)) {
+    overflow: hidden;
     &::before {
       background-size: contain;
     }
