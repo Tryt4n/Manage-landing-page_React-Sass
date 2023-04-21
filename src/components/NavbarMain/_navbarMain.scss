@@ -24,6 +24,13 @@
 
   //* MOBILE
   @media (width <= func.rem(1024)) {
+    &__mobile-menu-background {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: linear-gradient(to bottom, hsla(0, 0%, 0%, 0.1), hsla(0, 0%, 0%, 0.5));
+    }
+
     &__list {
       position: absolute;
       top: 0;
@@ -57,6 +64,13 @@
       &:where(:hover, :focus-visible) {
         opacity: 0.75;
       }
+    }
+
+    .closeBtn {
+      position: absolute;
+      right: 0;
+      margin-top: 3rem;
+      margin-right: var(--padding);
     }
   }
 }

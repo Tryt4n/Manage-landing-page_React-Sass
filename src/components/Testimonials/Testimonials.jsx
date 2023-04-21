@@ -44,7 +44,6 @@ export default function Testimonials() {
               `}
             />
           </SwiperSlide>
-
           <SwiperSlide>
             <TestimonialsCard
               imageUrl={"./images/avatar-ali.png"}
@@ -56,7 +55,6 @@ export default function Testimonials() {
               `}
             />
           </SwiperSlide>
-
           <SwiperSlide>
             <TestimonialsCard
               imageUrl={"./images/avatar-richard.png"}
@@ -67,7 +65,6 @@ export default function Testimonials() {
               `}
             />
           </SwiperSlide>
-
           <SwiperSlide>
             <TestimonialsCard
               imageUrl={"./images/avatar-shanai.png"}
@@ -78,7 +75,7 @@ export default function Testimonials() {
               `}
             />
           </SwiperSlide>
-
+          //! Copied testimonials card for better Swiper performance
           {width > 1024 && (
             <>
               <SwiperSlide key={crypto.randomUUID()}>

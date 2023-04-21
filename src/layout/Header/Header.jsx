@@ -1,5 +1,7 @@
-import NavbarMain from "../NavbarMain/NavbarMain";
-import Button from "../Button/Button";
+// import NavbarMain from "../NavbarMain/NavbarMain";
+// import Button from "../Button/Button";
+import NavbarMain from "../../components/NavbarMain/NavbarMain";
+import Button from "../../components/Button/Button";
 
 export default function Header() {
   return (
