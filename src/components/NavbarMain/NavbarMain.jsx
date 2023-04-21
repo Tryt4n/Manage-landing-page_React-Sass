@@ -38,11 +38,7 @@ export default function NavbarMain() {
   }, [isMobileMenuExpanded]);
 
   return (
-    <nav
-      className="main-navigation"
-      data-aos="fade-down"
-      data-aos-duration={500}
-    >
+    <nav className="main-navigation">
       <a
         href="#"
         aria-label="Homepage"
