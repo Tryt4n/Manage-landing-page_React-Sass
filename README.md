@@ -1,5 +1,7 @@
 # Frontend Mentor - Manage landing page
 
+[Link to the page](https://manage-landing-page-with-react-sass.netlify.app/)
+
 ![Design preview for the Manage landing page coding challenge](./design/desktop-preview.jpg)
 
 ## Welcome! 👋
